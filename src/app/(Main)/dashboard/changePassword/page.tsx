@@ -4,6 +4,7 @@ import Heading from "@/components/Heading";
 import InputField from "@/components/InputField";
 import { IMAGES } from "@/constant/images";
 import { useChangePassword } from "@/hooks/useChangePassword";
+import Link from "next/link";
 
 export default function ChangePassword() {
   const {

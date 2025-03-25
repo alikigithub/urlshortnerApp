@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                     String    @id @default(auto()) @map("_id") @db.ObjectId
+  name               String    @unique // Unique name
+  email                  String    @unique // Unique email
+  password               String // Hashed password
+  createdAt              DateTime  @default(now()) // Auto timestamp
+  reset_token            String?
+  reset_token_expiration DateTime?
+}
+model ShortUrl {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userID    String?
+  original  String   
+  short     String   @unique  
+  clicks    Int      @default(0)
+  createdAt DateTime @default(now())
+  isLocked  Boolean @default(false)
+  qrCode    String?
+  ipAddress String?
+  guestID   String?
+}
+model GuestUser {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  guestID     String   @unique // Can be IP or localStorage ID
+  searchCount Int      @default(1)
+  createdAt   DateTime @default(now())
+}

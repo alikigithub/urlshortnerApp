@@ -16,7 +16,7 @@ export default function SignUp() {
       className="  flex flex-col justify-between min-h-screen bg-cover bg-center bg-backgroundColor p-2"
     >
       <div className="flex items-center justify-center">
-        <h2 className=" text-center bg-gradient-to-r from-[#EB568E] to-[#144EE3] text-transparent bg-clip-text font-extrabold text-[36.91px] leading-[45.44px]">
+        <h2 className=" text-center bg-gradient-to-r from-blushRose to-btnPrimary text-transparent bg-clip-text font-extrabold text-[36.91px] leading-[45.44px]">
           Linkly
         </h2>
       </div>

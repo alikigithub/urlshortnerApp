@@ -16,7 +16,7 @@ export default function Home() {
       className="flex flex-col items-center w-full min-h-screen bg-cover bg-center bg-backgroundColor text-white"
     >
       <div className="flex items-center justify-between w-[90%] md:w-[95%] py-6">
-        <h2 className="text-[24px] md:text-[36.91px] font-extrabold bg-gradient-to-r from-[#EB568E] to-[#144EE3] text-transparent bg-clip-text">
+        <h2 className="text-[24px] md:text-[36.91px] font-extrabold bg-gradient-to-r from-blushRose to-btnPrimary text-transparent bg-clip-text">
           Linkly
         </h2>
         <div className="flex items-center gap-3">
@@ -24,7 +24,7 @@ export default function Home() {
             <Link href="/login">Login</Link>
             <CiLogin size={20} color="white" className="md:size-25" />
           </div>
-          <div className="px-4 py-2 md:px-6 md:py-3 rounded-full bg-[#144EE3] border-none text-[14px] md:text-[15px] text-white font-bold transition-all duration-200 hover:brightness-110 active:scale-95 shadow-md shadow-[#144EE3]">
+          <div className="px-4 py-2 md:px-6 md:py-3 rounded-full bg-btnPrimary border-none text-[14px] md:text-[15px] text-white font-bold transition-all duration-200 hover:brightness-110 active:scale-95 shadow-md shadow-btnPrimary">
             <Link href="/signup">Register Now</Link>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function Home() {
         </p>
       </div>
       <TableData />
-      <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white text-center py-3 z-1 shadow-lg">
+      <div className="fixed bottom-0 left-0 w-full bg-inputBordr/20 text-white text-center py-3 z-50 shadow-lg">
         <p className="m-0 text-sm sm:text-base">
           Register to enjoy unlimited history?
           <Link

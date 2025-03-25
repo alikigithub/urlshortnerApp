@@ -8,9 +8,9 @@ export default function IconButton({
   return (
     <button
       onClick={onPress}
-      className="rounded-full p-3 bg-[#144EE3] border-none text-white 
+      className="rounded-full p-3 bg-btnPrimary border-none text-white 
                  transition-all duration-200 hover:brightness-110 active:scale-95 
-                 shadow-md shadow-[#144EE3] flex items-center justify-center"
+                 shadow-md shadow-btnPrimary flex items-center justify-center"
     >
       <FaArrowRight size={20} />
     </button>

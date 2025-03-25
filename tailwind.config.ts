@@ -23,6 +23,7 @@ export default {
         goldenOchre: "#B0901E",
         deepPine: "#132B20",
         vintageBrown: "#2F2C1D",
+        blushRose: "#EB568E",
       },
     },
   },

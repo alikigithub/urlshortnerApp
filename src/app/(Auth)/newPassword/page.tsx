@@ -50,7 +50,7 @@ function NewPasswordContent() {
       className="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center bg-backgroundColor p-2"
     >
       <div className="flex items-center justify-center absolute top-0">
-        <h2 className="text-center bg-gradient-to-r from-[#EB568E] to-[#144EE3] text-transparent bg-clip-text font-extrabold text-[36.91px] leading-[45.44px]">
+        <h2 className="text-center bg-gradient-to-r from-blushRose to-btnPrimary text-transparent bg-clip-text font-extrabold text-[36.91px] leading-[45.44px]">
           Linkly
         </h2>
       </div>

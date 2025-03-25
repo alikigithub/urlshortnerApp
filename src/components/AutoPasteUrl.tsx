@@ -36,7 +36,7 @@ const AutoPaste = () => {
             checked={autoPaste}
             onChange={handleCheckboxChange}
           />
-          <span className="absolute inset-y-1 left-1 w-4 h-4 rounded-full bg-gray-600 peer-checked:bg-[#144EE3] peer-checked:left-7 transition-all duration-200"></span>
+          <span className="absolute inset-y-1 left-1 w-4 h-4 rounded-full bg-gray-600 peer-checked:bg-btnPrimary peer-checked:left-7 transition-all duration-200"></span>
         </div>
         Auto Paste to Clipboard
       </label>

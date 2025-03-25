@@ -17,7 +17,7 @@ export default function Dashboard() {
       <div className="flex flex-col  py-6   items-center  justify-between w-[95%]">
         <div className="flex items-center  justify-between w-[100%]">
           <div>
-            <h2 className=" text-center bg-gradient-to-r from-[#EB568E] to-[#144EE3] text-transparent bg-clip-text font-extrabold text-[36.91px] leading-[45.44px]">
+            <h2 className=" text-center bg-gradient-to-r from-blushRose to-btnPrimary text-transparent bg-clip-text font-extrabold text-[36.91px] leading-[45.44px]">
               <Link href="/dashboard"> Linkly</Link>
             </h2>
           </div>

@@ -8,7 +8,7 @@ export default function Heading({
   return (
     <div className="flex flex-col items-center text-center">
       <h1
-        className="text-[32px] md:text-[48px] font-extrabold bg-gradient-to-r from-[#EB568E] to-[#144EE3] text-transparent bg-clip-text 
+        className="text-[32px] md:text-[48px] font-extrabold bg-gradient-to-r from-blushRose to-btnPrimary text-transparent bg-clip-text 
                    leading-[1.1] tracking-tight"
         style={{ textRendering: "geometricPrecision" }}
       >

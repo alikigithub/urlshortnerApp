@@ -26,7 +26,7 @@ export default function LongInputField({
         value={enterValue}
         onChange={(e) => setEnterValue(e.target.value)}
         placeholder={placeholderData}
-        className=" xm:text-[10px] text-[15px] px-2 focus:outline-none bg-transparent  text-white flex-grow h-[50px]"
+        className=" xm:text-[10px] text-[10px] md:text-[15px] px-2 focus:outline-none bg-transparent  text-white flex-grow h-[50px]"
       />
       {headingData !== "none" ? (
         <>

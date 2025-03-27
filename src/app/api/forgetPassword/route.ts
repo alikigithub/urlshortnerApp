@@ -35,7 +35,7 @@ export const POST = async (req: Request) => {
         pass: process.env.EMAIL_PASSWORD,
       },
     });
-    const resetLink = `https://url-ten-psi.vercel.app/?token=${tokenGenerator}`;
+    const resetLink = `https://url-ten-psi.vercel.app/newPassword?token=${tokenGenerator}`;
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: body.email,

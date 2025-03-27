@@ -68,7 +68,7 @@ export default function Dashboard() {
           <h1 className=" text-white text-[16px] font-semibold">History</h1>
           <div className="group relative  px-4  md:py-3 py-2 bg-gray-800 border border-gray-500 rounded-full flex items-center gap-2 text-[14px] md:text-[15px] text-gray-300 hover:text-white transition-all duration-200">
             <CiFilter size={20} color="white" className="md:size-[25px]" />
-            <Link href="/login">Filter</Link>
+            Filter
             <span className="absolute inset-0 bg-blue-500 opacity-0 group-active:opacity-20 group-active:scale-110 rounded-full transition-all duration-150 ease-out pointer-events-none" />
           </div>
         </div>

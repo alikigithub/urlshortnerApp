@@ -6,6 +6,7 @@ import { IMAGES } from "@/constant/images";
 import useNewPassword from "@/hooks/useNewPassword";
 import { useAppDispatch } from "@/hooks/useRedux";
 import { tokenVerify } from "@/store/slice/userSlice";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 
@@ -52,7 +53,7 @@ function NewPasswordContent() {
     >
       <div className="flex items-center justify-center absolute top-0">
         <h2 className="text-center bg-gradient-to-r from-blushRose to-btnPrimary text-transparent bg-clip-text font-extrabold text-[36.91px] leading-[45.44px]">
-          Linkly
+          <Link href={"/login"}>Linkly</Link>
         </h2>
       </div>
       <div className="w-[100%] mt-5">

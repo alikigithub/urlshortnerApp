@@ -7,7 +7,8 @@ import useLogin from "@/hooks/useLogin";
 import Link from "next/link";
 
 export default function SignUp() {
-  const { email, setEmail, password, setPassword, handleLogin } = useLogin();
+  const { email, setEmail, password, setPassword, handleLogin, loading } =
+    useLogin();
   return (
     <div
       style={{
@@ -17,7 +18,7 @@ export default function SignUp() {
     >
       <div className="flex items-center justify-center">
         <h2 className=" text-center bg-gradient-to-r from-blushRose to-btnPrimary text-transparent bg-clip-text font-extrabold text-[36.91px] leading-[45.44px]">
-          Linkly
+          <Link href={"/"}> Linkly </Link>
         </h2>
       </div>
       <div className="mt-5">
@@ -27,7 +28,7 @@ export default function SignUp() {
         streamlines your online experience."
         />
       </div>
-      <div className="flex flex-col items-center justify-center  gap-2 ">
+      <div className="flex flex-col items-center justify-center  gap-5">
         <InputField
           typeData="email"
           placeholderData="Email"
@@ -40,8 +41,7 @@ export default function SignUp() {
           inputValue={password}
           setInputValue={setPassword}
         />
-
-        <Button heading="Sign In" onPress={handleLogin} />
+        <Button heading="Sign In" onPress={handleLogin} loading={loading} />
         <p className="text-paragraphClr">
           <span className="text-btnPrimary">
             <Link href="/forgetPassword"> Forget Password </Link>
@@ -52,9 +52,9 @@ export default function SignUp() {
       <div className="flex items-center justify-center ">
         <p className="text-paragraphClr">
           <span className="text-btnPrimary">
-            <Link href="/signup"> click here</Link>
+            <Link href="/signup"> Register</Link>
           </span>{" "}
-          if already registered
+          if not already registered
         </p>
       </div>
     </div>

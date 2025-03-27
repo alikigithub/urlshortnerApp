@@ -4,9 +4,10 @@ import Heading from "@/components/Heading";
 import InputField from "@/components/InputField";
 import { IMAGES } from "@/constant/images";
 import useForgetPassword from "@/hooks/useForgetPassword";
+import Link from "next/link";
 
 export default function ForgetPassword() {
-  const { email, setEmail, handleForGet } = useForgetPassword();
+  const { email, setEmail, handleForGet, loading } = useForgetPassword();
   return (
     <div
       style={{
@@ -16,7 +17,7 @@ export default function ForgetPassword() {
     >
       <div className="flex items-center justify-center absolute top-0">
         <h2 className=" text-center bg-gradient-to-r from-blushRose to-btnPrimary text-transparent bg-clip-text font-extrabold text-[36.91px] leading-[45.44px]">
-          Linkly
+          <Link href={"/"}>Linkly</Link>
         </h2>
       </div>
       <div className="mt-5">
@@ -32,7 +33,11 @@ export default function ForgetPassword() {
             setInputValue={setEmail}
           />
 
-          <Button heading="Get Password" onPress={handleForGet} />
+          <Button
+            heading="Get Password"
+            onPress={handleForGet}
+            loading={loading}
+          />
         </div>
       </div>
     </div>

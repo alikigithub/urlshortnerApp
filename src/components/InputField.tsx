@@ -20,7 +20,7 @@ export default function InputField({
         required
         readOnly={readInput}
         onChange={(e) => setInputValue(e.target.value)}
-        className="rounded-full h-[60px] w-[100%] border-4 border-inputBordr bg-inputBg px-2 focus:outline-none text-white"
+        className=" rounded-full h-[60px] w-[100%] border-4 border-inputBordr bg-inputBg px-4 focus:outline-none text-white"
       />
     </div>
   );

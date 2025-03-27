@@ -8,6 +8,7 @@ import { customSlug } from "@/store/slice/urlSlice";
 export function useCustomSlug() {
   const [originalLink, setOriginalLink] = useState("");
   const [cutomSlug, setCustomSlug] = useState("");
+  const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
   const autoSlug = () => {
     setCustomSlug(nanoid(4));
@@ -26,6 +27,7 @@ export function useCustomSlug() {
       return toast.error("Please enter Custom Slug");
     }
     try {
+      setLoading(true);
       const url = await dispatch(
         customSlug({ originalLink, cutomSlug })
       ).unwrap();
@@ -37,6 +39,7 @@ export function useCustomSlug() {
     } finally {
       setOriginalLink("");
       setCustomSlug("");
+      setLoading(false);
     }
   };
   return {
@@ -46,5 +49,6 @@ export function useCustomSlug() {
     setCustomSlug,
     shortNow,
     autoSlug,
+    loading,
   };
 }

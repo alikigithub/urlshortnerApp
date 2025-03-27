@@ -18,6 +18,7 @@ export default function SignUp() {
     confirmPassword,
     setConfirmPassword,
     inputhandler,
+    loading,
   } = useSignUp();
   return (
     <div
@@ -28,7 +29,7 @@ export default function SignUp() {
     >
       <div className="flex items-center justify-center">
         <h2 className=" text-center bg-gradient-to-r from-blushRose to-btnPrimary text-transparent bg-clip-text font-extrabold text-[36.91px] leading-[45.44px]">
-          Linkly
+          <Link href={"/"}> Linkly </Link>
         </h2>
       </div>
       <div className="mt-5">
@@ -38,7 +39,7 @@ export default function SignUp() {
         streamlines your online experience."
         />
       </div>
-      <div className="flex flex-col items-center justify-center  gap-2 mt-6 ">
+      <div className="flex flex-col items-center justify-center  gap-4 mt-6 ">
         <InputField
           typeData="email"
           placeholderData="Email"
@@ -64,7 +65,7 @@ export default function SignUp() {
           setInputValue={setConfirmPassword}
         />
 
-        <Button heading="Register" onPress={inputhandler} />
+        <Button heading="Register" onPress={inputhandler} loading={loading} />
         <ToastContainer />
       </div>
       <div className="flex items-center justify-center ">

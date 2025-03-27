@@ -10,7 +10,10 @@ export default function ProfileData() {
   const { data: sessionData } = useSession();
 
   return (
-    <div className="flex items-center w-[180px] md:w-[250px] h-[55px] gap-3">
+    <div
+      onClick={() => setIsOpen(!isOpen)}
+      className="flex items-center w-[180px] md:w-[250px] h-[55px] gap-3"
+    >
       <div className="relative w-full h-full">
         <div
           className={`flex items-center justify-between gap-3 py-1 border border-gray-500 w-full h-full bg-gradient-to-r from-gray-800 to-gray-900 font-semibold shadow-lg ${
@@ -26,7 +29,6 @@ export default function ProfileData() {
 
           <div>
             <Image
-              onClick={() => setIsOpen(!isOpen)}
               src={IMAGES.dropdown}
               alt="Toggle dropdown"
               className="cursor-pointer hover:scale-110 transition-transform duration-200 w-5 h-5"
@@ -37,15 +39,21 @@ export default function ProfileData() {
         {isOpen && (
           <div className="absolute z-20 top-[55px] w-full text-gray-300 text-[14px] animate-fadeIn">
             <ul className="flex flex-col bg-gray-900 rounded-b-[20px] shadow-lg">
-              <li className="p-4 hover:bg-gray-700 cursor-pointer transition-colors duration-150">
-                <Link href="/dashboard/editProfile">Edit Profile</Link>
-              </li>
-              <li className="p-4 hover:bg-gray-700 cursor-pointer transition-colors duration-150">
-                <Link href="/dashboard/customSlug">Custom Slug</Link>
-              </li>
-              <li className="p-4 hover:bg-gray-700 cursor-pointer transition-colors duration-150">
-                <Link href="/dashboard/changePassword">Change Password</Link>
-              </li>
+              <Link href="/dashboard/editProfile">
+                <li className="p-4 hover:bg-gray-700 cursor-pointer transition-colors duration-150">
+                  Edit Profile
+                </li>
+              </Link>
+              <Link href="/dashboard/customSlug">
+                <li className="p-4 hover:bg-gray-700 cursor-pointer transition-colors duration-150">
+                  Custom Slug
+                </li>
+              </Link>
+              <Link href="/dashboard/changePassword">
+                <li className="p-4 hover:bg-gray-700 cursor-pointer transition-colors duration-150">
+                  Change Password
+                </li>
+              </Link>
               <li
                 onClick={async () => await signOut()}
                 className="p-4 hover:bg-red-600 hover:text-white cursor-pointer transition-colors duration-150"

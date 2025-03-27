@@ -15,6 +15,7 @@ export default function ChangePassword() {
     newpassword,
     confirmPassword,
     oldPassword,
+    loading,
   } = useChangePassword();
   return (
     <div
@@ -50,7 +51,11 @@ export default function ChangePassword() {
             setInputValue={setConfirmPassword}
           />
 
-          <Button heading="Get Password" onPress={handleForGet} />
+          <Button
+            heading="Get Password"
+            onPress={handleForGet}
+            loading={loading}
+          />
         </div>
       </div>
     </div>

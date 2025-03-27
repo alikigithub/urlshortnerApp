@@ -6,10 +6,12 @@ import { changePassword } from "@/store/slice/userSlice";
 export function useChangePassword() {
   const [oldPassword, setOldPassword] = useState("");
   const [newpassword, setNewPassword] = useState("");
+  const [loading, setloading] = useState(false);
   const dispatch = useAppDispatch();
   const [confirmPassword, setConfirmPassword] = useState("");
   const handleForGet = async () => {
     try {
+      setloading(true);
       if (
         !oldPassword.trim() ||
         !newpassword.trim() ||
@@ -30,6 +32,8 @@ export function useChangePassword() {
       setConfirmPassword("");
     } catch (error) {
       toast.error(error as string);
+    } finally {
+      setloading(false);
     }
   };
   return {
@@ -40,5 +44,6 @@ export function useChangePassword() {
     newpassword,
     confirmPassword,
     oldPassword,
+    loading,
   };
 }

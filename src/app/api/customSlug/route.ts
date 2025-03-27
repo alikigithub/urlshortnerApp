@@ -18,7 +18,7 @@ export const POST = async (req: Request) => {
       );
     }
     const qrCodeGenerate = await QRCode.toDataURL(body.originalLink);
-    const shortUrl = `https://url-ten-psi.vercel.app/${body.cutomSlug}`;
+    const shortUrl = `http://localhost:3000/${body.cutomSlug}`;
     const findShortUrl = await prisma.shortUrl.findUnique({
       where: { short: shortUrl },
     });

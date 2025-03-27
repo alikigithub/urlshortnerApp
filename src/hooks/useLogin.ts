@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function useLogin() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
   const router = useRouter();
   const handleLogin = async (e: React.FormEvent) => {
@@ -15,6 +16,7 @@ export default function useLogin() {
       return;
     }
     try {
+      setLoading(true);
       const loginData = await signIn("credentials", {
         email,
         password,
@@ -28,6 +30,9 @@ export default function useLogin() {
       router.replace("dashboard");
     } catch (error: unknown) {
       toast.error(String(error));
+    } finally {
+      setLoading(false);
+      setEmail("");
     }
   };
   return {
@@ -36,5 +41,6 @@ export default function useLogin() {
     password,
     setPassword,
     handleLogin,
+    loading,
   };
 }

@@ -7,11 +7,16 @@ import { allUrls } from "@/types/type";
 export default function useTableData() {
   const [tableContent, setTableContent] = useState<allUrls[]>([]);
   const [editingRowId, setEditingRowId] = useState<number | null>(null);
+  const [expandedRow, setExpandedRow] = useState<number | null>(null);
+
   const [editedValues, setEditedValues] = useState({
     id: "",
     isLocked: false,
     original: "",
   });
+  const toggleRow = (index: number) => {
+    setExpandedRow(expandedRow === index ? null : index);
+  };
   const editOnClick = (data: allUrls, index: number) => {
     setEditingRowId(index);
     setEditedValues({
@@ -83,5 +88,7 @@ export default function useTableData() {
     handleSave,
     setEditedValues,
     handleDelete,
+    toggleRow,
+    expandedRow,
   };
 }

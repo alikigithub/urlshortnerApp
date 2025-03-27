@@ -7,6 +7,7 @@ import { editProfile } from "@/store/slice/userSlice";
 export default function useEditProfile() {
   const [userName, setUserName] = useState("");
   const { data: sessionData } = useSession();
+  const [loading, setloading] = useState(false);
   const email = sessionData?.user?.email;
   const id = sessionData?.user.id;
   const dispatch = useAppDispatch();
@@ -21,12 +22,20 @@ export default function useEditProfile() {
       return toast.error("Please Enter UserName");
     }
     try {
+      setloading(true);
       if (id) {
-        dispatch(editProfile({ id, userName }));
+        const data = await dispatch(editProfile({ id, userName })).unwrap();
+
+        if (data) {
+          toast.success("Profile Updated");
+        }
       } else {
         toast.error("Login First");
       }
-    } catch {}
+    } catch {
+    } finally {
+      setloading(false);
+    }
   };
 
   return {
@@ -34,5 +43,6 @@ export default function useEditProfile() {
     userName,
     setUserName,
     updateProfile,
+    loading,
   };
 }

@@ -8,10 +8,12 @@ export default function useSignUp() {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setloading] = useState(false);
   const dispatch = useAppDispatch();
   const inputhandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
+      setloading(true);
       if (!email || !userName || !password || !confirmPassword) {
         return toast.error("All fields are required.");
       }
@@ -36,6 +38,7 @@ export default function useSignUp() {
     } catch (error) {
       toast.error(error as string);
     } finally {
+      setloading(false);
       setEmail("");
       setUsername("");
       setPassword("");
@@ -53,5 +56,6 @@ export default function useSignUp() {
     confirmPassword,
     setConfirmPassword,
     inputhandler,
+    loading,
   };
 }

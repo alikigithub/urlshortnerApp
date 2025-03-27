@@ -6,9 +6,11 @@ import { emailSent } from "@/store/slice/userSlice";
 
 export default function useForgetPassword() {
   const [email, setEmail] = useState<string>("");
+  const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
   const handleForGet = async () => {
     try {
+      setLoading(true);
       if (email.trim() === "") {
         toast.error("Please enter email");
         return;
@@ -18,6 +20,8 @@ export default function useForgetPassword() {
       setEmail("");
     } catch (error) {
       toast.error(error as string);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -25,5 +29,6 @@ export default function useForgetPassword() {
     email,
     setEmail,
     handleForGet,
+    loading,
   };
 }

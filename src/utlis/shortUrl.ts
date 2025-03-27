@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
 
 export function generateShortURL() {
-  return `https://url-ten-psi.vercel.app/${nanoid(7)}`;
+  return `http://localhost:3000/${nanoid(7)}`;
 }

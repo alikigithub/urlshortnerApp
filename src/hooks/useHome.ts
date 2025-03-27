@@ -10,9 +10,11 @@ export default function useHome() {
     route.push("/signup");
   };
   const [originalLink, setOriginalLink] = useState("");
+  const [loading, setloading] = useState(false);
   const dispatch = useAppDispatch();
   const handleForGet = async () => {
     try {
+      setloading(true);
       if (!originalLink.trim()) {
         return toast.error("Please Data in Each Field");
       }
@@ -32,6 +34,8 @@ export default function useHome() {
       }
     } catch (error) {
       toast.error(error as string);
+    } finally {
+      setloading(false);
     }
   };
   return {
@@ -39,5 +43,6 @@ export default function useHome() {
     handleForGet,
     originalLink,
     setOriginalLink,
+    loading,
   };
 }

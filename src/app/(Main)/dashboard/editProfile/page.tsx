@@ -7,7 +7,8 @@ import useEditProfile from "@/hooks/useEditProfile";
 import Link from "next/link";
 
 export default function EditProfile() {
-  const { email, userName, setUserName, updateProfile } = useEditProfile();
+  const { email, userName, setUserName, updateProfile, loading } =
+    useEditProfile();
   return (
     <div
       style={{
@@ -25,7 +26,7 @@ export default function EditProfile() {
         <div className=" w-[100%] flex flex-col items-center justify-center  gap-5 mt-6 ">
           <InputField
             typeData="Email"
-            placeholderData="Old Password"
+            placeholderData="Email"
             inputValue={email ?? ""}
           />
           <InputField
@@ -35,7 +36,11 @@ export default function EditProfile() {
             setInputValue={setUserName}
           />
 
-          <Button heading="Get Password" onPress={updateProfile} />
+          <Button
+            heading="Update Profile"
+            onPress={updateProfile}
+            loading={loading}
+          />
         </div>
       </div>
     </div>

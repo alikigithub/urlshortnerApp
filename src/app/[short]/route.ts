@@ -8,7 +8,7 @@ export const GET = async (
   const shortData = await params;
   const shortUrlData = shortData.short;
   const data = await prisma.shortUrl.findUnique({
-    where: { short: `https://url-ten-psi.vercel.app/${shortUrlData}` },
+    where: { short: `http://localhost:3000/${shortUrlData}` },
     select: { original: true, clicks: true, isLocked: true },
   });
   if (!data) {
@@ -30,7 +30,7 @@ export const GET = async (
     );
   }
   await prisma.shortUrl.update({
-    where: { short: `https://url-ten-psi.vercel.app/${shortUrlData}` },
+    where: { short: `http://localhost:3000/${shortUrlData}` },
     data: { clicks: data.clicks + 1 },
   });
 

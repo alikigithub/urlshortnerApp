@@ -17,6 +17,7 @@ function NewPasswordContent() {
     setConfirmPassword,
     handleForGet,
     setToken,
+    loading,
   } = useNewPassword();
   const dispatch = useAppDispatch();
   const searchParams = useSearchParams();
@@ -69,7 +70,11 @@ function NewPasswordContent() {
             inputValue={confirmPassword}
             setInputValue={setConfirmPassword}
           />
-          <Button heading="Get Password" onPress={handleForGet} />
+          <Button
+            heading="Get Password"
+            onPress={handleForGet}
+            loading={loading}
+          />
         </div>
       </div>
     </div>

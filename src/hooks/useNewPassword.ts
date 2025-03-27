@@ -9,6 +9,7 @@ export default function useNewPassword() {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [token, setToken] = useState("");
+  const [loading, setLoading] = useState(false);
   const handleForGet = async () => {
     if (password.trim() === "" || confirmPassword.trim() === "") {
       toast.error("Please enter password");
@@ -19,6 +20,7 @@ export default function useNewPassword() {
       return;
     }
     try {
+      setLoading(true);
       await dispatch(
         newPassword({ token: token, password: password })
       ).unwrap();
@@ -27,6 +29,8 @@ export default function useNewPassword() {
       toast.success("Your Password Has been Updated");
     } catch (error) {
       toast.error(error as string);
+    } finally {
+      setLoading(false);
     }
   };
   return {
@@ -36,5 +40,6 @@ export default function useNewPassword() {
     setConfirmPassword,
     setToken,
     handleForGet,
+    loading,
   };
 }

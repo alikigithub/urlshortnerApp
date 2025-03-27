@@ -23,7 +23,7 @@ export default function useLogin() {
         redirect: false,
       });
       if (loginData?.error) {
-        toast.error(loginData.error);
+        toast.error("Invalid Credentials");
         return;
       }
       toast.success("Welcome Your are login");
@@ -33,6 +33,7 @@ export default function useLogin() {
     } finally {
       setLoading(false);
       setEmail("");
+      setPassword("");
     }
   };
   return {

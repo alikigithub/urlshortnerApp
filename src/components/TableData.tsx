@@ -34,7 +34,7 @@ export default function TableData({
 
   return (
     <div className="flex w-full flex-grow justify-center bg-opacity-50">
-      <div className="w-full max-w-[1200px] overflow-x-auto px-2 md:px-4">
+      <div className="w-full max-w-[1200px] overflow-x-auto">
         <table className="table-auto w-full mt-4 border-collapse shadow-sm shadow-inputBordr rounded-md">
           <thead className={`${bgcolor}`}>
             <tr className="text-white text-xs md:text-sm lg:text-base">

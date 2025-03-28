@@ -39,7 +39,7 @@ export default function SignUp() {
         streamlines your online experience."
         />
       </div>
-      <div className="flex flex-col items-center justify-center  gap-4 mt-6 ">
+      <div className="flex flex-col items-center justify-center mt-[-20px] gap-4 md:mt-1 ">
         <InputField
           typeData="email"
           placeholderData="Email"

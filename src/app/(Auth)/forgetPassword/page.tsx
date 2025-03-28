@@ -25,7 +25,7 @@ export default function ForgetPassword() {
           heading="Enter Your Email To get Your Password Recovered"
           para=""
         />
-        <div className="flex flex-col items-center justify-center  gap-5 mt-6 ">
+        <div className="flex flex-col items-center justify-center  md:mt-[-10px] gap-5  ">
           <InputField
             typeData="email"
             placeholderData="Email"

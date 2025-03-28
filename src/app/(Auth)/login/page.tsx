@@ -28,7 +28,7 @@ export default function SignUp() {
         streamlines your online experience."
         />
       </div>
-      <div className="flex flex-col items-center justify-center  gap-5">
+      <div className="flex flex-col items-center justify-center mt-[-50px] md:mt-[-30px] gap-5">
         <InputField
           typeData="email"
           placeholderData="Email"

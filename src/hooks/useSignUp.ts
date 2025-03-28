@@ -1,7 +1,9 @@
+"use client";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useAppDispatch } from "./useRedux";
 import { signupUser } from "@/store/slice/userSlice";
+import { useRouter } from "next/navigation";
 
 export default function useSignUp() {
   const [email, setEmail] = useState("");
@@ -9,6 +11,7 @@ export default function useSignUp() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setloading] = useState(false);
+  const router = useRouter();
   const dispatch = useAppDispatch();
   const inputhandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -34,6 +37,7 @@ export default function useSignUp() {
       ).unwrap();
       if (checkSignUp) {
         toast.success("Account Created");
+        router.push("/login");
       }
     } catch (error) {
       toast.error(error as string);

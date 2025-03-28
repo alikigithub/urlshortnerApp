@@ -51,7 +51,10 @@ export default function useTableData() {
   };
   const handleDelete = async (id: string) => {
     try {
-      await dispatch(deleteTable({ id })).unwrap();
+      const data = await dispatch(deleteTable({ id })).unwrap();
+      if (data) {
+        toast.success("data has been deleted");
+      }
     } catch (error) {
       toast.error(error as string);
     }

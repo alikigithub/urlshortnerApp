@@ -10,7 +10,7 @@ export default function ChangePassword() {
   const {
     handleForGet,
     setNewPassword,
-    setConfirmPassword,
+  setConfirmPassword,
     setOldPassword,
     newpassword,
     confirmPassword,

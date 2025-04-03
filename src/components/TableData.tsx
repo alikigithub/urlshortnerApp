@@ -34,7 +34,7 @@ export default function TableData({
 
   return (
     <div className="flex w-full flex-grow justify-center bg-opacity-50">
-      <div className="w-full max-w-[1200px] overflow-x-auto">
+      <div className="w-full  overflow-x-auto">
         <table className="table-auto w-full mt-4 border-collapse shadow-sm shadow-inputBordr rounded-md">
           <thead className={`${bgcolor}`}>
             <tr className="text-white text-xs md:text-sm lg:text-base">
@@ -125,16 +125,18 @@ export default function TableData({
                       </span>
                     )}
                   </td>
-                  <td className="p-2 hidden md:table-cell">
-                    <Image
-                      className="w-10 h-10 object-contain"
-                      src={data?.qrCode}
-                      width={200}
-                      height={200}
-                      alt={`QR code for ${data?.original}`}
-                    />
+                  <td className="p-2 hidden md:table-cell text-center">
+                    <div className="flex justify-center">
+                      <Image
+                        className="w-10 h-10"
+                        src={data?.qrCode}
+                        width={200}
+                        height={200}
+                        alt={`QR code for ${data?.original}`}
+                      />
+                    </div>
                   </td>
-                  <td className="text-paragraphClr p-2 hidden md:table-cell">
+                  <td className="text-paragraphClr text-center p-2 hidden md:table-cell">
                     {data?.clicks}
                   </td>
                   <td className="text-paragraphClr p-2 hidden md:table-cell">

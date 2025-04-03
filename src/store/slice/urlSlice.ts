@@ -113,6 +113,7 @@ export const customSlug = createAsyncThunk(
 const initialState: UrlState = {
   allUrls: [],
   searchRemain: 0,
+  history: 0,
 };
 export const urlSlice = createSlice({
   name: "urlSlice",
@@ -123,6 +124,7 @@ export const urlSlice = createSlice({
       .addCase(tableData.fulfilled, (state, action) => {
         state.allUrls = action.payload?.reverse();
         state.searchRemain = 5 - state.allUrls.length;
+        state.history = state.allUrls.length;
       })
       .addCase(updateData.fulfilled, (state, action) => {
         state.allUrls = state.allUrls.map((id) =>

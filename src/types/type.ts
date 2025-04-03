@@ -1,6 +1,7 @@
 export type UrlState = {
   allUrls: allUrls[];
   searchRemain: number;
+  history: number;
 };
 export type allUrls = {
   id: string;

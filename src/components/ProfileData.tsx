@@ -49,7 +49,7 @@ export default function ProfileData() {
                   Custom Slug
                 </li>
               </Link>
-              <Link href="/dashboard/changePassword">
+              <Link href="/changePassword">
                 <li className="p-4 hover:bg-gray-700 cursor-pointer transition-colors duration-150">
                   Change Password
                 </li>

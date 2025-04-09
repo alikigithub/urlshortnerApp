@@ -18,12 +18,12 @@ export default function useHome() {
       if (!originalLink.trim()) {
         return toast.error("Please Data in Each Field");
       }
-      if (originalLink.trim().length <= 31) {
+      if (originalLink?.trim().length <= 31) {
         return toast.error("Your Url is Already Short");
       }
       if (
-        originalLink.startsWith("http://") ||
-        originalLink.startsWith("https://")
+        originalLink?.startsWith("http://") ||
+        originalLink?.startsWith("https://")
       ) {
         const urlData = await dispatch(urlShortner({ originalLink })).unwrap();
         if (urlData) {

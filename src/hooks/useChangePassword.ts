@@ -13,9 +13,9 @@ export function useChangePassword() {
     try {
       setloading(true);
       if (
-        !oldPassword.trim() ||
-        !newpassword.trim() ||
-        !confirmPassword.trim()
+        !oldPassword?.trim() ||
+        !newpassword?.trim() ||
+        !confirmPassword?.trim()
       ) {
         return toast.error("Please Data in Each Field");
       }

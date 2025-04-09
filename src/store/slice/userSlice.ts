@@ -110,32 +110,37 @@ export const changePassword = createAsyncThunk(
 );
 export const editProfile = createAsyncThunk(
   "EditProfile/UserName",
-  async ({ id, userName }: { id: string; userName: string }) => {
+  async (
+    { id, userName }: { id: string; userName: string },
+    { rejectWithValue }
+  ) => {
     try {
-      const responce = await axiosInstance.put("/editProfile", {
+      const response = await axiosInstance.put("/editProfile", {
         id,
         userName,
       });
-      const data = await responce.data;
-      return data;
+      return response.data;
     } catch (error) {
-      const axiosErro = error as AxiosError;
-      if (axiosErro.request?.status === 401) {
-        return Response.json("Something is wrong");
+      const axiosError = error as AxiosError;
+      if (axiosError.response?.status === 401) {
+        return rejectWithValue("Something is wrong");
       }
-      if (axiosErro.request?.status === 403) {
-        return Response.json("Login please");
+      if (axiosError.response?.status === 403) {
+        return rejectWithValue("Login please");
       }
-      return Response.json("Something is wrong");
+      return rejectWithValue("Something is wrong");
     }
   }
 );
+
 const initialState = {
   name: "",
   email: "",
   verify: "",
   passwordData: "",
   emailData: "",
+  isLoading: false,
+  error: null as string | null,
 };
 export const userSlice = createSlice({
   name: "UserSlice",
@@ -143,14 +148,79 @@ export const userSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(tokenVerify.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(tokenVerify.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.verify = action.payload;
       })
+      .addCase(tokenVerify.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+
+      .addCase(newPassword.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(newPassword.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.passwordData = action.payload;
       })
+      .addCase(newPassword.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+
+      .addCase(emailSent.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(emailSent.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.emailData = action.payload;
+      })
+      .addCase(emailSent.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+
+      .addCase(signupUser.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(signupUser.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(signupUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+
+      .addCase(changePassword.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(changePassword.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(changePassword.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+
+      .addCase(editProfile.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(editProfile.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(editProfile.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
       });
   },
 });

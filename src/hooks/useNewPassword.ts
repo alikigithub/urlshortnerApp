@@ -11,7 +11,7 @@ export default function useNewPassword() {
   const [token, setToken] = useState("");
   const [loading, setLoading] = useState(false);
   const handleForGet = async () => {
-    if (password.trim() === "" || confirmPassword.trim() === "") {
+    if (password?.trim() === "" || confirmPassword?.trim() === "") {
       toast.error("Please enter password");
       return;
     }

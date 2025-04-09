@@ -14,16 +14,16 @@ export function useCustomSlug() {
     setCustomSlug(nanoid(4));
   };
   const shortNow = async () => {
-    if (originalLink.trim() === "") {
+    if (originalLink?.trim() === "") {
       return toast.error("Please Enter Link for Shorten");
     }
     if (
-      !originalLink.startsWith("http://") &&
-      !originalLink.startsWith("https://")
+      !originalLink?.startsWith("http://") &&
+      !originalLink?.startsWith("https://")
     ) {
       return toast.error("please enter Valid Url");
     }
-    if (cutomSlug.trim() === "") {
+    if (cutomSlug?.trim() === "") {
       return toast.error("Please enter Custom Slug");
     }
     try {

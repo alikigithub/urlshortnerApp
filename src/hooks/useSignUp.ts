@@ -28,7 +28,7 @@ export default function useSignUp() {
       if (password !== confirmPassword) {
         return toast.error("Passwords do not match.");
       }
-      if (password.length < 5) {
+      if (password?.length < 5) {
         return toast.error("Password must be of 5 character or more");
       }
 

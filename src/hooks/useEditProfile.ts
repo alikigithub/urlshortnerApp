@@ -13,7 +13,7 @@ export default function useEditProfile() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     if (sessionData?.user?.name) {
-      setUserName(sessionData.user.name);
+      setUserName(sessionData?.user?.name);
     }
   }, [sessionData]);
 

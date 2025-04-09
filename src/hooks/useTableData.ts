@@ -31,9 +31,9 @@ export default function useTableData() {
     try {
       await dispatch(
         updateData({
-          id: editedValues.id,
-          isLocked: editedValues.isLocked,
-          original: editedValues.original,
+          id: editedValues?.id,
+          isLocked: editedValues?.isLocked,
+          original: editedValues?.original,
         })
       )
         .unwrap()

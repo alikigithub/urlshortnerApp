@@ -114,6 +114,8 @@ const initialState: UrlState = {
   allUrls: [],
   searchRemain: 0,
   history: 0,
+  isLoading: false,
+  error: null,
 };
 export const urlSlice = createSlice({
   name: "urlSlice",
@@ -121,20 +123,69 @@ export const urlSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(tableData.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(tableData.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.allUrls = action.payload?.reverse();
         state.searchRemain = 5 - state.allUrls.length;
         state.history = state.allUrls.length;
       })
+      .addCase(tableData.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(updateData.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(updateData.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.allUrls = state.allUrls.map((id) =>
           id.id === action.payload.id ? action.payload : id
         );
       })
+      .addCase(updateData.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(deleteTable.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(deleteTable.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.allUrls = state.allUrls.filter(
           (id) => id.id !== action.payload.id
         );
+      })
+      .addCase(deleteTable.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(urlShortner.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(urlShortner.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(urlShortner.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(customSlug.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(customSlug.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(customSlug.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
       });
   },
 });
